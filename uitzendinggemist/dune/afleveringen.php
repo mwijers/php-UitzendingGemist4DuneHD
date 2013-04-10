@@ -23,7 +23,12 @@
 			$localepiid = $episode['refid'];
 			$url = 'dune_'.$baseurl.'/ug_stream.php?type=dune&localepiid='.$localepiid;
 			echo "\n";
-			writeItem($num++, $episode['title'], $url, 'play', $episode['img'], $episode['description']);
+                        if(isset($episode['description']))
+                        {
+                        writeItem($num++, $episode['title'], $url, 'play', $episode['img'], $episode['description']);
+                        } else {
+                        writeItem($num++, $episode['title'], $url, 'play', $episode['img']);
+                        }
 		}
 		return $num;
 	}
